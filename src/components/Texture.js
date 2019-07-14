@@ -1,11 +1,17 @@
 import React, { Component, useMemo } from 'react';
 import * as THREE from 'three';
+import { Canvas } from 'react-three-fiber';
 import { perlin } from '../assets/perlin';
 import image from '../assets/texture5.jpg';
 import disp from '../assets/noise.png';
 
 class Texture extends Component {
-    render() {
+    constructor(props) {
+        super(props);
+        this.initImage = this.initImage.bind(this);
+    }
+
+    initImage() {
         const [texture, noise] = useMemo(
             () => {
                 const loader = new THREE.TextureLoader();
@@ -25,6 +31,14 @@ class Texture extends Component {
             </mesh>
         );
     }
+    
+    render() {
+        return (
+            <Canvas>
+                <this.initImage/>
+            </Canvas>
+        );
+    }
 }
 
-export default Texture;
+export { Texture };
