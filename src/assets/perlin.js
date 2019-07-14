@@ -25,7 +25,7 @@ const perlin = {
             vec4 disp = texture2D(noise, vUv + speed);
             
             // ripple effect with sin waves
-            disp.xy = sin(vUv.y * 100. * speed);
+            disp.xy *= sin(vUv.y * 100. * speed);
             
             // apply ripple on texture
             vec2 shift = vec2(vUv.x - disp.x, vUv.y - disp.y);
