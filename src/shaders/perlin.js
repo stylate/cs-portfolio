@@ -4,7 +4,6 @@ const perlin = {
     effectFactor: { type: 'f', value: 1.2 },
     dispFactor: { type: 'f', value: 0 },
     texture: { type: 't', value: undefined },
-    texture2: { type: 't', value: undefined },
     disp: { type: 't', value: undefined },
     speed: { type: 'f', value: 0.5 }
   },
@@ -30,7 +29,8 @@ const perlin = {
       vec4 disp = texture2D(disp, uv);
       disp -= 0.5;
 
-      disp.xy += cos(uv.y * 100. + speed);
+      disp.xy *= cos(uv.y * 100. + speed);
+      disp.xy *= 0.05;
 
       vec2 shift = vec2(uv.x - disp.x, uv.y - disp.y);
       gl_FragColor = texture2D(texture, shift);
