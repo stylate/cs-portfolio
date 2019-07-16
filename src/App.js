@@ -1,14 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Texture } from './components/Texture';
-import './App.css';
+import React from 'react'
+import './styles.css'
+import Texture from './components/Texture'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Texture/>
-    </div>
-  );
+    <Texture/>
+  )
 }
-
-export default App;
