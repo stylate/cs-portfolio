@@ -1,7 +1,7 @@
 const perlin = {
   transparent: true,
   uniforms: {
-    effectFactor: { type: 'f', value: 1.2 },
+    effectFactor: { type: 'f', value: 0.075 },
     dispFactor: { type: 'f', value: 0 },
     texture: { type: 't', value: undefined },
     disp: { type: 't', value: undefined },
@@ -18,9 +18,7 @@ const perlin = {
   fragmentShader: `
     varying vec2 vUv;
     uniform sampler2D texture;
-    uniform sampler2D texture2;
     uniform sampler2D disp;
-    uniform float _rot;
     uniform float dispFactor;
     uniform float effectFactor;
     uniform float speed;
@@ -31,8 +29,7 @@ const perlin = {
       vec4 disp = texture2D(disp, uv);
       disp -= 0.5;
 
-      disp.xy *= cos(uv.y * 100. + speed * time);
-      disp.xy *= 0.075;
+      disp.xy *= cos(uv.y * 100. + speed * time) * effectFactor;
 
       vec2 shift = vec2(uv.x - disp.x, uv.y - disp.y);
       gl_FragColor = texture2D(texture, shift);
