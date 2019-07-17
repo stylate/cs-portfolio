@@ -3,10 +3,10 @@ const perlin = {
   uniforms: {
     effectFactor: { type: 'f', value: 0.075 },
     dispFactor: { type: 'f', value: 0 },
-    texture: { type: 't', value: undefined },
-    disp: { type: 't', value: undefined },
     speed: { type: 'f', value: 0.5 },
-    time: { type: 'f', value: 0 }
+    time: { type: 'f', value: 0 },
+    texture: { type: 't', value: undefined },
+    disp: { type: 't', value: undefined }
   },
   vertexShader: `
     varying vec2 vUv;
@@ -27,9 +27,9 @@ const perlin = {
     void main() {
       vec2 uv = vUv;
       vec4 disp = texture2D(disp, uv);
-      disp -= 0.5;
+      disp -= 0.6;
 
-      disp.xy *= cos(uv.y * 100. + speed * time) * effectFactor;
+      disp.xy *= cos(uv.y * 85. + speed * time) * effectFactor;
 
       vec2 shift = vec2(uv.x - disp.x, uv.y - disp.y);
       gl_FragColor = texture2D(texture, shift);

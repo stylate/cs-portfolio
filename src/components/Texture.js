@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import React, { Component, useState, useCallback, useMemo, useRef } from 'react'
 import { Canvas, useRender } from 'react-three-fiber'
 import { perlin } from '../shaders/perlin'
-import img from '../img/text.jpg'
+import img from '../img/fritz.jpg'
 import disp from '../img/displacement/noise.png'
 
 class Texture extends Component {
@@ -24,7 +24,7 @@ class Texture extends Component {
     );
     return (
       <mesh>
-        <planeBufferGeometry name="geometry" args={[5, 5]} />
+        <planeBufferGeometry name="geometry" args={[8, 8]} />
           <shaderMaterial
             name="material"
             args={[perlin]}
@@ -38,7 +38,7 @@ class Texture extends Component {
   Scene() {
     let group = useRef();
     console.log("group: ", group);
-    useRender(() => group.current.children[0].material.uniforms['time'].value += 0.05);
+    useRender(() => group.current.children[0].material.uniforms['time'].value += 0.02);
     return (
       <group ref={group}>
         <this.initImage url={img} disp={disp} />
