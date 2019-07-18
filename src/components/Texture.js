@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import React, { Component, useState, useCallback, useMemo, useRef } from 'react'
+import React, { Component, useMemo, useRef } from 'react'
 import { Canvas, useRender } from 'react-three-fiber'
 import { perlin } from '../shaders/perlin'
 import img from '../img/fritz.jpg'
@@ -14,7 +14,6 @@ class Texture extends Component {
   }
 
   initImage({ url, disp }) {
-    // let group = useRef();
     const [texture, noise] = useMemo(
       () => {
         const loader = new THREE.TextureLoader()
