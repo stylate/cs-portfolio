@@ -1,3 +1,5 @@
+@import "canvas";
+@import url(https://fonts.googleapis.com/css?family=Muli:200,300|Open%20Sans:200,300|Raleway:200,300|Karla);
 * {
   box-sizing: border-box;
 }
@@ -31,15 +33,8 @@ body {
 
 body {
   overscroll-behavior-y: none;
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica,
-    ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: black;
-}
-
-.canvas {
-  position: absolute;
-  top: 0;
-  pointer-events: none;
 }
 
 .scroll-container {
