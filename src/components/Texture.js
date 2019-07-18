@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import React, { Component, useMemo, useRef } from 'react'
+import React, { useMemo, useRef } from 'react'
 import { Canvas, useRender, useThree } from 'react-three-fiber'
 import { perlin } from '../shaders/perlin'
 import img from '../img/fritz.jpg'
