@@ -23,6 +23,7 @@ class Texture extends Component {
     );
     const { canvas } = useThree();
     canvas.height=900;
+    canvas.width=700;
     canvas.style="width: 100%; height: 100%;";
     return (
       <mesh>
@@ -39,7 +40,6 @@ class Texture extends Component {
 
   Scene() {
     let group = useRef();
-    console.log("group: ", group);
     useRender(() => group.current.children[0].material.uniforms['time'].value += 0.02);
     return (
       <group ref={group}>
@@ -50,11 +50,9 @@ class Texture extends Component {
 
   render() {
     return (
-        <div className="main">
         <Canvas className="canvas">
             <this.Scene />
         </Canvas>
-        </div>
     );
   }
 }
