@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import React, { Component, useMemo, useRef } from 'react'
-import { Canvas, useRender } from 'react-three-fiber'
+import { Canvas, useRender, useThree } from 'react-three-fiber'
 import { perlin } from '../shaders/perlin'
 import img from '../img/fritz.jpg'
 import disp from '../img/displacement/noise.png'
@@ -21,6 +21,9 @@ class Texture extends Component {
       },
       [url, disp]
     );
+    const { canvas } = useThree();
+    canvas.height=900;
+    canvas.style="width: 100%; height: 100%;";
     return (
       <mesh>
         <planeBufferGeometry name="geometry" args={[8, 8]} />
@@ -47,9 +50,11 @@ class Texture extends Component {
 
   render() {
     return (
+        <div className="main">
         <Canvas className="canvas">
             <this.Scene />
         </Canvas>
+        </div>
     );
   }
 }
