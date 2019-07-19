@@ -6,8 +6,7 @@ const perlin = {
     speed: { type: 'f', value: 0.5 },
     time: { type: 'f', value: 0 },
     texture: { type: 't', value: undefined },
-    disp: { type: 't', value: undefined },
-    resolution: { type: 'v2', value: undefined }
+    disp: { type: 't', value: undefined }
   },
   vertexShader: `
     varying vec2 vUv;
@@ -24,10 +23,8 @@ const perlin = {
     uniform float effectFactor;
     uniform float speed;
     uniform float time;
-    uniform vec2 resolution;
 
     void main() {
-      vec2 st = gl_FragCoord.xy / resolution;
       vec2 uv = vUv;
       vec4 disp = texture2D(disp, uv);
       disp -= 0.6;

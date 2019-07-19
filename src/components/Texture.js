@@ -14,9 +14,9 @@ const InitImage = ({url, disp}) => {
     [url, disp]
   );
   const { canvas } = useThree();
-  canvas.height=900;
-  canvas.width=700;
-  canvas.style="width: 100%; height: 100%;";
+  canvas.height = 900;
+  canvas.width = 700;
+  canvas.style = "width: 100%; height: 100%;";
   return (
     <mesh>
       <planeBufferGeometry name="geometry" args={[8, 8]} />
