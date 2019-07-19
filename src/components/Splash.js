@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Directory from './Directory';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import resume from '../assets/resume.pdf';
 
 // this is text for the splash page.
 
@@ -17,6 +16,10 @@ const Mini = styled.p`
     line-height: 0.7;
 `
 
+const Link = styled.a`
+    color: inherit;
+`
+
 const blurb = "currently a fourth year student at UC Berkeley studying computer science. " +  
 "interests lie heavily within design, digital media, security, and computer graphics."
 
@@ -24,7 +27,7 @@ const Splash = (
     <Text>
         <p>{blurb}</p>
         <Mini>previously >> akamai, fox networks</Mini>
-        <Mini>project directory >> here</Mini>
+        <Mini>cv >> <Link href={resume}>here</Link></Mini>
     </Text>
 );
 

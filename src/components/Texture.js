@@ -2,8 +2,8 @@ import * as THREE from 'three'
 import React, { useMemo, useRef } from 'react'
 import { Canvas, useRender, useThree } from 'react-three-fiber'
 import { perlin } from '../shaders/perlin'
-import img from '../img/fritz.jpg'
-import disp from '../img/displacement/noise.png'
+import img from '../assets/fritz.jpg'
+import disp from '../assets/displacement/noise.png'
 
 const InitImage = ({url, disp}) => {
   const [texture, noise] = useMemo(
