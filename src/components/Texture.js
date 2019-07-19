@@ -15,7 +15,7 @@ const InitImage = ({url, disp}) => {
   );
   const { canvas } = useThree();
   canvas.height = 900;
-  canvas.width = 700;
+  canvas.width = 750;
   canvas.style = "width: 100%; height: 100%;";
   return (
     <mesh>
