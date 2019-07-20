@@ -4,6 +4,7 @@ import { Canvas, useRender, useThree } from 'react-three-fiber'
 import { perlin } from '../shaders/perlin'
 import img from '../assets/fritz.jpg'
 import disp from '../assets/displacement/noise.png'
+import { Desktop } from './core/Index'
 
 const InitImage = ({url, disp}) => {
   const [texture, noise] = useMemo(
@@ -42,8 +43,10 @@ const Scene = () => {
 
 export const Texture = () => {
   return (
-    <Canvas className="canvas">
-      <Scene />
-    </Canvas>
+    <Desktop>
+      <Canvas className="canvas">
+        <Scene />
+      </Canvas>
+    </Desktop>
   );
 };
