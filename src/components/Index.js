@@ -1,4 +1,3 @@
-export * from './Directory';
+export * from './Texture';
 export * from './Header';
 export * from './Splash';
-export * from './Texture';

@@ -1,13 +1,22 @@
 import * as THREE from 'three'
-import React, { useMemo, useRef } from 'react'
+import React, { Component, useMemo, useRef } from 'react'
 import { Canvas, useRender, useThree } from 'react-three-fiber'
 import { perlin } from '../shaders/perlin'
 import img from '../assets/fritz.jpg'
 import disp from '../assets/displacement/noise.png'
 import { Desktop } from './core/Index'
 
-const heightDiff = window.innerHeight - 900;
-const widthDiff = window.innerWidth - 1500;
+let heightDiff = window.innerHeight - 900;
+let widthDiff = window.innerWidth - 1500;
+
+function resize() {
+  const { canvas, camera, renderer } = useThree();
+  camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+  canvas.height = Math.max(900, 900 + heightDiff);
+  canvas.width = Math.max(750, 750 + widthDiff);
+}
 
 const InitImage = ({url, disp}) => {
   const [texture, noise] = useMemo(
@@ -46,12 +55,18 @@ const Scene = () => {
   );
 }
 
-export const Texture = () => {
-  return (
+class Texture extends Component {
+
+  render() {
+    return (
     <Desktop>
       <Canvas className="canvas">
         <Scene />
       </Canvas>
     </Desktop>
-  );
-};
+    );
+  }
+
+}
+
+export { Texture };
