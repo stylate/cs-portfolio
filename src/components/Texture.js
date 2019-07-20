@@ -40,12 +40,10 @@ const Scene = () => {
   );
 }
 
-const Texture = () => {
+export const Texture = () => {
   return (
     <Canvas className="canvas">
       <Scene />
     </Canvas>
   );
-}
-
-export default Texture;
+};

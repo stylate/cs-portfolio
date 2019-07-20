@@ -8,6 +8,7 @@
     "node-sass": "^4.12.0",
     "react": "16.8.4",
     "react-dom": "16.8.4",
+    "react-responsive": "^7.0.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "2.1.8",
     "react-spring": "8.0.15",

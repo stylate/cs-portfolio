@@ -1,7 +1,5 @@
 import React from 'react'
-import Texture from './components/Texture'
-import Header from './components/Header'
-import Splash from './components/Splash'
+import { Header, Splash, Texture } from './components/Index'
 import './layout/styles.scss'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
