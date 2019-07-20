@@ -1,7 +1,6 @@
 import React from 'react'
 import { Header, Splash, Texture } from './components/Index'
 import './layout/styles.scss'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const App = () => {
   return (

@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import React, { Component, useMemo, useRef } from 'react'
+import React, { useMemo, useRef, useState, useEffect } from 'react'
 import { Canvas, useRender, useThree } from 'react-three-fiber'
 import { perlin } from '../shaders/perlin'
 import img from '../assets/fritz.jpg'
@@ -8,15 +8,6 @@ import { Desktop } from './core/Index'
 
 let heightDiff = window.innerHeight - 900;
 let widthDiff = window.innerWidth - 1500;
-
-function resize() {
-  const { canvas, camera, renderer } = useThree();
-  camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
-	renderer.setSize( window.innerWidth, window.innerHeight );
-  canvas.height = Math.max(900, 900 + heightDiff);
-  canvas.width = Math.max(750, 750 + widthDiff);
-}
 
 const InitImage = ({url, disp}) => {
   const [texture, noise] = useMemo(
@@ -27,8 +18,6 @@ const InitImage = ({url, disp}) => {
     [url, disp]
   );
   const { canvas } = useThree();
-  console.log("heightDiff: ", heightDiff);
-  console.log("widthDiff: ", widthDiff);
   canvas.height = Math.max(900, 900 + heightDiff);
   canvas.width = Math.max(750, 750 + widthDiff);
   canvas.style = "width: 100%; height: 100%;";
@@ -55,7 +44,45 @@ const Scene = () => {
   );
 }
 
-class Texture extends Component {
+export const Texture = () => {
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  useEffect(() => {
+    const handleResize = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      })
+    }
+    window.addEventListener('resize', handleResize)
+    return () => { window.removeEventListener('resize', handleResize) }
+  }, []);
+  return (
+    <Desktop>
+      <Canvas className="canvas">
+        <Scene />
+      </Canvas>
+    </Desktop>
+  );
+};
+
+/*class Texture extends Component {
+
+  constructor(props) {
+    super(props);
+    this.resize = this.resize.bind(this);
+  }
+
+  resize() {
+    const { canvas, camera, renderer } = useThree();
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    canvas.height = Math.max(900, 900 + heightDiff);
+    canvas.width = Math.max(750, 750 + widthDiff);
+  }
 
   render() {
     return (
@@ -69,4 +96,4 @@ class Texture extends Component {
 
 }
 
-export { Texture };
+export { Texture };*/
