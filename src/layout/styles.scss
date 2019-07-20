@@ -1,0 +1,65 @@
+@import "canvas";
+@import "main";
+@import "splash";
+
+@import url(https://fonts.googleapis.com/css?family=EB%20Garamond|Overpass%20Mono);
+
+@font-face {
+  font-family: "Nitti Grotesk";
+  src: url("grotesk.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noe Display";
+  src: url("noe-display.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #272727;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  position: fixed;
+  overflow: hidden;
+}
+
+body {
+  overscroll-behavior-y: none;
+  font-family: 'Overpass Mono', sans-serif;
+  color: rgba(255, 250, 250, 0.9);
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+.scroll-container {
+  position: absolute;
+  overflow: auto;
+  top: 0px;
+  width: 100%;
+  height: 100vh;
+  font-size: 20em;
+  font-weight: 800;
+  line-height: 0.9em;
+}
