@@ -22,6 +22,10 @@ export const Head = styled.h2`
         padding-left: 1.3em;
         padding-top: 5em;
     }
+
+    @media screen and (min-width: 1800px) {
+        padding-top: 8em;
+    }
 `
 
 export const Text = styled.div`

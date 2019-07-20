@@ -6,6 +6,9 @@ import img from '../assets/fritz.jpg'
 import disp from '../assets/displacement/noise.png'
 import { Desktop } from './core/Index'
 
+const heightDiff = window.innerHeight - 900;
+const widthDiff = window.innerWidth - 1500;
+
 const InitImage = ({url, disp}) => {
   const [texture, noise] = useMemo(
     () => {
@@ -15,8 +18,10 @@ const InitImage = ({url, disp}) => {
     [url, disp]
   );
   const { canvas } = useThree();
-  canvas.height = 900;
-  canvas.width = 750;
+  console.log("heightDiff: ", heightDiff);
+  console.log("widthDiff: ", widthDiff);
+  canvas.height = Math.max(900, 900 + heightDiff);
+  canvas.width = Math.max(750, 750 + widthDiff);
   canvas.style = "width: 100%; height: 100%;";
   return (
     <mesh>
