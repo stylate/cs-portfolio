@@ -7,7 +7,7 @@ import disp from '../assets/displacement/noise.png'
 import { Desktop } from './core/Index'
 
 let heightDiff = window.innerHeight - 900;
-let widthDiff = window.innerWidth - 1500;
+let widthDiff = window.innerWidth - 1400;
 
 const InitImage = ({url, disp}) => {
   const [texture, noise] = useMemo(
@@ -19,7 +19,7 @@ const InitImage = ({url, disp}) => {
   );
   const { canvas } = useThree();
   canvas.height = Math.max(900, 900 + heightDiff);
-  canvas.width = Math.max(750, 750 + widthDiff);
+  canvas.width = Math.max(650, 650 + widthDiff);
   canvas.style = "width: 100%; height: 100%;";
   return (
     <mesh>
