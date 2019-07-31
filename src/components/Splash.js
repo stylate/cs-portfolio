@@ -18,8 +18,9 @@ const Heading = styled.h1`
 
 const Text = styled.div`
   font-size: ${(props) => props.size === 'small' ? 12 : 16}px;
-  line-height: ${(props) => props.size === 'small' ? 0.7 : 1.5}em;
+  line-height: ${(props) => props.size === 'small' ? 0.3 : 1.5}em;
   margin-bottom: 20px;
+  width: 80%;
 `;
 
 const Link = styled.a`
