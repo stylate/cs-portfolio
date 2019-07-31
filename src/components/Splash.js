@@ -1,17 +1,50 @@
 import React from 'react';
+import styled from 'styled-components';
 import resume from '../assets/resume.pdf';
-import { Text, Mini, Link } from './core/Index';
 
-// this is text for the splash page.
+const Content = styled.div`
+  min-width: 540px;
+  padding: 64px;
+  font-weight: 100;
+`;
 
-const blurb = "currently a fourth year student at UC Berkeley studying computer science. " +  
-"interests lie heavily within design, digital media, security, and computer graphics."
+const Heading = styled.h1`
+  font-family: 'EB Garamond', sans-serif;
+  font-size: 48px;
+  font-weight: inherit;
+  letter-spacing: 1.2px;
+  opacity: 0.9;
+`
 
-export const Splash = (
+const Text = styled.div`
+  font-size: ${(props) => props.size === 'small' ? 12 : 16}px;
+  line-height: ${(props) => props.size === 'small' ? 0.7 : 1.5}em;
+  margin-bottom: 20px;
+`;
+
+const Link = styled.a`
+  color: inherit;
+`
+
+const Splash = () => (
+  <Content>
+    <Heading>
+      alan nguyen
+    </Heading>
     <Text>
-        <p>{blurb}</p>
-        <Mini>previously >> akamai, fox networks</Mini>
-        <Mini>cv >> <Link href={resume}>here</Link></Mini>
-        <Mini>github >> <Link href="http://github.com/stylate">here</Link></Mini>
+      currently a fourth year student at UC Berkeley studying computer science.
+      interests lie heavily within design, digital media, security, and computer graphics.
     </Text>
+    <Text size='small'>
+      previously >> akamai, fox networks
+    </Text>
+    <Text size='small'>
+      cv >> <Link href={resume}>here</Link>
+    </Text>
+    <Text size='small'>
+      github >> <Link href="http://github.com/stylate">here</Link>
+    </Text>
+  </Content>
 );
+
+export default Splash;

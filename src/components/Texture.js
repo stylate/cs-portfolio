@@ -1,6 +1,8 @@
 import * as THREE from 'three'
 import React, { useMemo, useRef, useState, useEffect } from 'react'
 import { Canvas, useRender, useThree } from 'react-three-fiber'
+import styled from 'styled-components';
+
 import { perlin } from '../shaders/perlin'
 import img from '../assets/fritz.jpg'
 import disp from '../assets/displacement/noise.png'
@@ -18,9 +20,11 @@ const InitImage = ({url, disp}) => {
     [url, disp]
   );
   const { canvas } = useThree();
+
   canvas.height = Math.max(900, 900 + heightDiff);
+
   canvas.width = Math.max(650, 650 + widthDiff);
-  canvas.style = "width: 100%; height: 100%;";
+
   return (
     <mesh>
       <planeBufferGeometry name="geometry" args={[8, 8]} />
@@ -36,7 +40,9 @@ const InitImage = ({url, disp}) => {
 
 const Scene = () => {
   let group = useRef();
+
   useRender(() => group.current.children[0].material.uniforms['time'].value += 0.02);
+
   return (
     <group ref={group}>
       <InitImage url={img} disp={disp} />
@@ -44,27 +50,17 @@ const Scene = () => {
   );
 }
 
+const Container = styled.div`
+  overflow: hidden;
+`;
+
 export const Texture = () => {
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-  useEffect(() => {
-    const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      })
-    }
-    window.addEventListener('resize', handleResize)
-    return () => { window.removeEventListener('resize', handleResize) }
-  }, []);
   return (
-    <Desktop>
-      <Canvas className="canvas">
+    <div>
+      <Canvas className='canvas'>
         <Scene />
       </Canvas>
-    </Desktop>
+    </div>
   );
 };
 
