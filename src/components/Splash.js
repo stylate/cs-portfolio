@@ -12,5 +12,6 @@ export const Splash = (
         <p>{blurb}</p>
         <Mini>previously >> akamai, fox networks</Mini>
         <Mini>cv >> <Link href={resume}>here</Link></Mini>
+        <Mini>github >> <Link href="http://github.com/stylate">here</Link></Mini>
     </Text>
 );
