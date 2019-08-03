@@ -22,8 +22,8 @@ const InitImage = ({url, disp}) => {
   const { canvas } = useThree();
 
   canvas.height = Math.max(900, 900 + heightDiff);
-
   canvas.width = Math.max(650, 650 + widthDiff);
+  canvas.style = "width: 100%; height: 100%";
 
   return (
     <mesh>
