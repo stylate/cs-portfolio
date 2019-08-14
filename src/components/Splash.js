@@ -6,7 +6,7 @@ const Content = styled.div`
   min-width: 540px;
   max-width: 700px;
   padding: 64px;
-  margin-left: 50px;
+  margin-left: 70px;
   font-weight: 100;
 `;
 
