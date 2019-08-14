@@ -4,7 +4,9 @@ import resume from '../assets/resume.pdf';
 
 const Content = styled.div`
   min-width: 540px;
+  max-width: 700px;
   padding: 64px;
+  margin-left: 50px;
   font-weight: 100;
 `;
 
