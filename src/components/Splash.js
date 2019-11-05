@@ -36,7 +36,7 @@ const Splash = () => (
     </Heading>
     <Text>
       currently a fourth year student at UC Berkeley studying computer science.
-      interests lie heavily within design, digital media, social good, and computer graphics. also shoots a lot of <Link href="https://alandn.me">photos.</Link>
+      interests lie heavily within design, digital media, social good, and computer graphics. also shoots a lot of <Link href="https://alandn.me">photos</Link>.
     </Text>
     <Text size='small'>
       previously >> akamai, fox networks
